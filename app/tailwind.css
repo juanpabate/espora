@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .bg-svg-custom {
-  background-image: url("lineas.svg");
+  /* background-image: url("lineas.svg"); */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
