@@ -154,7 +154,7 @@ export default function Profile() {
       : data.followers?.includes(userLoged?.uid ?? "");
 
   return (
-    <main className="p-8 w-full h-screen overflow-scroll">
+    <main className="p-8 w-full h-screen overflow-y-scroll">
       {data.isUser && <h2 className="text-2xl mb-10 font-bold">Mi perfil</h2>}
       <div className="flex gap-6 items-center">
         <img

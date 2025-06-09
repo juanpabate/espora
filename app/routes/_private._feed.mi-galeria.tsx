@@ -100,7 +100,7 @@ export default function Galeria() {
   console.log(gallery);
 
   return (
-    <main className="p-8 w-full h-screen overflow-scroll">
+    <main className="p-8 w-full h-screen overflow-y-scroll">
       <section className="flex gap-6 items-center border-b-[1px] pb-10">
         <img
           src={data?.profilePhoto ?? "/profile-photo.png"}

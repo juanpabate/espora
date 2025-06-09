@@ -246,7 +246,7 @@ export default function Inicio() {
   // console.log(posts);
 
   return (
-    <main className="p-8 h-screen overflow-scroll">
+    <main className="p-8 h-screen overflow-y-scroll">
       <h2 className="text-2xl mb-4 font-bold">Categorías</h2>
       <div className="flex gap-3 w-full flex-wrap text-xs mb-10">
         <button className="p-2 rounded-md bg-[#272727] hover:bg-[#494949] transition-all h-8">

@@ -31,7 +31,7 @@ export default function Nav({ data }: NavProps) {
     }
   }
   return (
-    <nav className="w-2/12 bg-[linear-gradient(0deg,_#F46868_65%,_#302B4F_100%)] overflow-scroll pb-3 text-sm">
+    <nav className="w-2/12 bg-[linear-gradient(0deg,_#F46868_65%,_#302B4F_100%)] overflow-y-scroll pb-3 text-sm">
       <div className="flex flex-col h-fit">
         <img src="/logo-blanco.svg" alt="" className="w-80 mt-4 p-4" />
         <div className="pr-10 pl-6">

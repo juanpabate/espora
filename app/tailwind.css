@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #444 #000;
+}
+
 .bg-svg-custom {
   /* background-image: url("lineas.svg"); */
   background-repeat: no-repeat;
