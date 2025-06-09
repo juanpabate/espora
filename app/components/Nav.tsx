@@ -240,12 +240,14 @@ export default function Nav({ data }: NavProps) {
       <div className="text-[0.4rem] mt-3 pr-10 pl-6 opacity-45">
         <p className="font-bold text-center mb-[0.5rem]">Espora V1</p>
         <p className="text-center leading-none mb-[0.5rem]">
-          <span className="font-bold">Diseño gráfico, UX/UI:</span>Andrés Felipe
-          Castañeda Ramírez
+          <span className="font-bold mr-[0.1rem]">Diseño gráfico, UX/UI:</span>
+          Andrés Felipe Castañeda Ramírez
         </p>
         <p className="text-center leading-none">
-          <span className="font-bold">Programación y Desarrollo:</span>Juan
-          Pablo Benjumea Ortega
+          <span className="font-bold mr-[0.1rem]">
+            Programación y Desarrollo:
+          </span>
+          Juan Pablo Benjumea Ortega
         </p>
       </div>
     </nav>

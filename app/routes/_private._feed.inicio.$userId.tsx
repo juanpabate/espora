@@ -187,7 +187,7 @@ export default function Profile() {
                     type="submit"
                     name="follow"
                     value={optimisticFollow ? "notFollow" : "follow"}
-                    className="text-3xl font-bold text-[#F46868] text-transparent"
+                    className="text-3xl font-bold text-[#F46868]"
                   >
                     {optimisticFollow ? "Siguiendo" : "Seguir"}
                   </button>
