@@ -1,5 +1,6 @@
 import { NavLink, useNavigate, Link } from "@remix-run/react";
 import { navItems, contacts } from "~/lib/constants";
+import { FaBell, FaBookmark, FaCog } from "react-icons/fa";
 
 type Data = {
   photoURL?: string;
@@ -30,7 +31,7 @@ export default function Nav({ data }: NavProps) {
     }
   }
   return (
-    <nav className="w-2/12 bg-[linear-gradient(180deg,_#F46868_25%,_#302B4F_100%)] overflow-scroll pb-3 text-sm">
+    <nav className="w-2/12 bg-[linear-gradient(0deg,_#F46868_65%,_#302B4F_100%)] overflow-scroll pb-3 text-sm">
       <div className="flex flex-col h-fit">
         <img src="/logo-blanco.svg" alt="" className="w-80 mt-4 p-4" />
         <div className="pr-10 pl-6">
@@ -64,22 +65,150 @@ export default function Nav({ data }: NavProps) {
           </div>
         </div>
         <div className="pr-10 pl-6 mt-4 w-full flex flex-col gap-2">
-          {navItems.map((nav) => (
-            <NavLink
-              className={({ isActive, isPending }) =>
-                isPending
-                  ? "bg-gray-300/50 rounded-md p-2 flex gap-4 items-center px-4"
-                  : isActive
-                  ? "bg-[#393939] rounded-md p-2 flex gap-4 items-center px-4"
-                  : "bg-transparent rounded-md p-2 flex gap-4 items-center px-4 hover:bg-gray-300/50 transition-all"
-              }
-              to={nav.nav}
-              key={nav.name}
-            >
-              <img src={nav.icon} alt="icon" />
-              {nav.name}
-            </NavLink>
-          ))}
+          <NavLink
+            className={({ isActive, isPending }) =>
+              isPending
+                ? "bg-gray-300/50 rounded-md p-2 flex items-center px-4"
+                : isActive
+                ? "bg-[#393939] rounded-md p-2 flex items-center px-4"
+                : "bg-transparent rounded-md p-2 flex items-center px-4 hover:bg-gray-300/50 transition-all"
+            }
+            to={"/inicio"}
+          >
+            <img
+              className="pr-[1rem] pl-[2px]"
+              src="/espora-icon-small.svg"
+              alt="icon"
+            />
+            Inicio
+          </NavLink>
+
+          <NavLink
+            className={({ isActive, isPending }) =>
+              isPending
+                ? "bg-gray-300/50 rounded-md p-2 flex items-center px-4"
+                : isActive
+                ? "bg-[#393939] rounded-md p-2 flex items-center px-4"
+                : "bg-transparent rounded-md p-2 flex items-center px-4 hover:bg-gray-300/50 transition-all"
+            }
+            to={"/mi-perfil"}
+          >
+            <img className="pr-3" src="/profile-icon.svg" alt="icon" />
+            Mi Perfil
+          </NavLink>
+
+          <NavLink
+            className={({ isActive, isPending }) =>
+              isPending
+                ? "bg-gray-300/50 rounded-md p-2 flex items-center px-4"
+                : isActive
+                ? "bg-[#393939] rounded-md p-2 flex items-center px-4"
+                : "bg-transparent rounded-md p-2 flex items-center px-4 hover:bg-gray-300/50 transition-all"
+            }
+            to={"/publicar"}
+          >
+            <img className="pr-3" src="/publicar-icon.svg" alt="icon" />
+            Publicar
+          </NavLink>
+
+          <NavLink
+            className={({ isActive, isPending }) =>
+              isPending
+                ? "bg-gray-300/50 rounded-md p-2 flex items-center px-4"
+                : isActive
+                ? "bg-[#393939] rounded-md p-2 flex items-center px-4"
+                : "bg-transparent rounded-md p-2 flex items-center px-4 hover:bg-gray-300/50 transition-all"
+            }
+            to={"/mi-galeria"}
+          >
+            <img className="pr-3" src="/galeria-icon.svg" alt="icon" />
+            Mi Galería
+          </NavLink>
+
+          <NavLink
+            className={({ isActive, isPending }) =>
+              isPending
+                ? "bg-gray-300/50 rounded-md p-2 flex items-center px-4"
+                : isActive
+                ? "bg-[#393939] rounded-md p-2 flex items-center px-4"
+                : "bg-transparent rounded-md p-2 flex items-center px-4 hover:bg-gray-300/50 transition-all opacity-45"
+            }
+            to={"/artistas-seguidos"}
+          >
+            <img className="pr-3" src="/profile-icon.svg" alt="icon" />
+            <div className="flex flex-col">
+              <p className="text-xs">Seguidos</p>
+              <p className="text-xs">(En desarrollo)</p>
+            </div>
+          </NavLink>
+
+          <NavLink
+            className={({ isActive, isPending }) =>
+              isPending
+                ? "bg-gray-300/50 rounded-md p-2 flex items-center px-4"
+                : isActive
+                ? "bg-[#393939] rounded-md p-2 flex items-center px-4"
+                : "bg-transparent rounded-md p-2 flex items-center px-4 hover:bg-gray-300/50 transition-all opacity-45"
+            }
+            to={"/mensajes"}
+          >
+            <img className="pr-3" src="/mensajes-icon.svg" alt="icon" />
+            <div className="flex flex-col">
+              <p className="text-xs">Mensajes</p>
+              <p className="text-xs">(En desarrollo)</p>
+            </div>
+          </NavLink>
+
+          <NavLink
+            className={({ isActive, isPending }) =>
+              isPending
+                ? "bg-gray-300/50 rounded-md p-2 flex items-center px-4"
+                : isActive
+                ? "bg-[#393939] rounded-md p-2 flex items-center px-4"
+                : "bg-transparent rounded-md p-2 flex items-center px-4 hover:bg-gray-300/50 transition-all opacity-45"
+            }
+            to={"/guardado"}
+          >
+            <FaBookmark className="text-2xl mr-3" />
+            <div className="flex flex-col">
+              <p className="text-xs">Guardado</p>
+              <p className="text-xs">(En desarrollo)</p>
+            </div>
+          </NavLink>
+
+          <NavLink
+            className={({ isActive, isPending }) =>
+              isPending
+                ? "bg-gray-300/50 rounded-md p-2 flex items-center px-4"
+                : isActive
+                ? "bg-[#393939] rounded-md p-2 flex items-center px-4"
+                : "bg-transparent rounded-md p-2 flex items-center px-4 hover:bg-gray-300/50 transition-all opacity-45"
+            }
+            to={"/notificaciones"}
+          >
+            <FaBell className="text-2xl mr-3" />
+            <div className="flex flex-col">
+              <p className="text-xs">Notificaciones</p>
+              <p className="text-xs">(En desarrollo)</p>
+            </div>
+          </NavLink>
+
+          <NavLink
+            className={({ isActive, isPending }) =>
+              isPending
+                ? "bg-gray-300/50 rounded-md p-2 flex items-center px-4"
+                : isActive
+                ? "bg-[#393939] rounded-md p-2 flex items-center px-4"
+                : "bg-transparent rounded-md p-2 flex items-center px-4 hover:bg-gray-300/50 transition-all opacity-45"
+            }
+            to={"/ajustes"}
+          >
+            <FaCog className="text-2xl mr-3" />
+            <div className="flex flex-col">
+              <p className="text-xs">Ajustes</p>
+              <p className="text-xs">(En desarrollo)</p>
+            </div>
+          </NavLink>
           <span className="border-b-2 border-gray-400 my-2 mb-8"></span>
         </div>
         <div className="px-6 w-full pr-10">
@@ -107,6 +236,17 @@ export default function Nav({ data }: NavProps) {
           <img src="/logout-icon.svg" alt="Cerrar sesión" />
           <p>Cerrar sesión</p>
         </button>
+      </div>
+      <div className="text-[0.4rem] mt-3 pr-10 pl-6 opacity-45">
+        <p className="font-bold text-center mb-[0.5rem]">Espora V1</p>
+        <p className="text-center leading-none mb-[0.5rem]">
+          <span className="font-bold">Diseño gráfico, UX/UI:</span>Andrés Felipe
+          Castañeda Ramírez
+        </p>
+        <p className="text-center leading-none">
+          <span className="font-bold">Programación y Desarrollo:</span>Juan
+          Pablo Benjumea Ortega
+        </p>
       </div>
     </nav>
   );

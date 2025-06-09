@@ -1,3 +1,3 @@
 export default function ArtistasSeguidos() {
-  return <p>Artistas seguidos</p>;
+  return <img className="h-screen" src="/desarrollo/SEGUIDOS.png" />;
 }

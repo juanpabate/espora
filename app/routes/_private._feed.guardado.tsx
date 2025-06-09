@@ -1,3 +1,3 @@
 export default function Guardado() {
-  return <p>Guardados</p>;
+  return <img className="h-screen" src="/desarrollo/GUARDADOS.png" />;
 }

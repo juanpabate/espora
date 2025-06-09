@@ -75,7 +75,7 @@ export default function CompletarRegistro2() {
 
         <Form
           method="post"
-          className="min-h-[calc(50%+2rem)] flex flex-col font-extralight"
+          className="min-h-[calc(50%+2rem)] flex flex-col font-extralight pr-6"
         >
           <label htmlFor="category" className="font-extralight mb-2">
             ¿Qué tipo de creador(a) eres?

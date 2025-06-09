@@ -171,6 +171,7 @@ export default function Post({
 
   const [imgIndex, setImgIndex] = useState<number>(0);
   const [coment, setComent] = useState<string>("");
+  const [openComents, setOpenComents] = useState<boolean>(false);
 
   const userLoged = useRouteLoaderData<UserLoged>("routes/_private");
 
@@ -255,7 +256,16 @@ export default function Post({
       )}
 
       <div className="flex w-full justify-between mb-6">
-        <p className="font-extralight">{`${numeroComentarios} comentarios`}</p>
+        <p
+          onClick={() => setOpenComents(!openComents)}
+          className={`font-extralight select-none ${
+            numeroComentarios === 0 ? "" : "hover:underline cursor-pointer"
+          }`}
+        >
+          {numeroComentarios !== 1
+            ? `${numeroComentarios} comentarios`
+            : `${numeroComentarios} comentario`}
+        </p>
         <div className="flex gap-3">
           <likeFetcher.Form method="post">
             <input type="hidden" name="userId" value={userLoged?.uid} />
@@ -290,7 +300,7 @@ export default function Post({
         </div>
       </div>
 
-      {data.coments.length > 0 && userLoged && (
+      {data.coments.length > 0 && userLoged && openComents && (
         <Coments coments={coments} userLoged={userLoged} postId={data.id} />
       )}
 

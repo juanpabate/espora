@@ -104,7 +104,10 @@ export default function CompletarRegistro() {
           <p className="font-bold text-3xl">Perfil personal</p>
         </div>
 
-        <Form method="post" className="min-h-[calc(50%+2rem)] flex flex-col">
+        <Form
+          method="post"
+          className="min-h-[calc(50%+2rem)] flex flex-col pr-4"
+        >
           <label htmlFor="birthdate" className="font-extralight mb-2">
             Fecha de nacimiento
           </label>

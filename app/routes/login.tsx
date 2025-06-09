@@ -164,7 +164,7 @@ export default function Login() {
   return (
     <main className="bg-[linear-gradient(180deg,_#F46868_0%,_#302B4F_100%)] h-screen text-white flex">
       <section className="w-2/3 bg-svg-custom flex flex-col items-center justify-center pr-10">
-        <img className="absolute h-full" src="/lineas.svg" alt="" />
+        <img className="absolute h-full -left-20" src="/lineas.svg" alt="" />
         <img src="/logo-blanco.svg" alt="Logo de Espora" className="w-1/2" />
         <h2 className="text-5xl text-center font-extralight">
           <span className="font-semibold block font-sans">

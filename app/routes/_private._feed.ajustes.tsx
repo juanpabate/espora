@@ -1,3 +1,3 @@
 export default function Ajustes() {
-  return <p>Ajustes</p>;
+  return <img className="h-screen" src="/desarrollo/AJUSTES.png" />;
 }

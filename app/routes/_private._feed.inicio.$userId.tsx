@@ -1,6 +1,19 @@
-import { redirect, useLoaderData, useNavigation, Link } from "@remix-run/react";
-import type { LoaderFunctionArgs } from "@remix-run/node";
-import { getDoc, doc } from "firebase/firestore";
+import {
+  redirect,
+  useLoaderData,
+  useNavigation,
+  Link,
+  useRouteLoaderData,
+  useFetcher,
+} from "@remix-run/react";
+import type { LoaderFunctionArgs, ActionFunctionArgs } from "@remix-run/node";
+import {
+  getDoc,
+  doc,
+  updateDoc,
+  arrayUnion,
+  arrayRemove,
+} from "firebase/firestore";
 import { db, storage } from "firebase/connection";
 import { adminAuth } from "firebase/admin";
 import { userTokenCookie } from "utils/session";
@@ -30,6 +43,49 @@ type LoaderData = {
   data: data;
   gallery?: string[];
 };
+
+type userLoged = {
+  uid?: string;
+};
+
+export async function action({ request }: ActionFunctionArgs) {
+  const data = await request.formData();
+  const userLogedId = data.get("userLogedId")?.toString();
+  const userId = data.get("userId")?.toString();
+  const actionType = data.get("follow")?.toString(); // "follow" o "notFollow"
+
+  try {
+    if (!userLogedId || !userId || !actionType) {
+      throw new Error("Información incompleta");
+    }
+
+    const userLogedRef = doc(db, "users", userLogedId);
+    const userToFollowRef = doc(db, "users", userId);
+
+    if (actionType === "follow") {
+      // Agregar relación
+      await updateDoc(userLogedRef, {
+        followed: arrayUnion(userId),
+      });
+      await updateDoc(userToFollowRef, {
+        followers: arrayUnion(userLogedId),
+      });
+    } else if (actionType === "notFollow") {
+      // Quitar relación
+      await updateDoc(userLogedRef, {
+        followed: arrayRemove(userId),
+      });
+      await updateDoc(userToFollowRef, {
+        followers: arrayRemove(userLogedId),
+      });
+    }
+
+    return { success: true };
+  } catch (error) {
+    console.error("Error en acción de seguir/dejar de seguir:", error);
+    return null;
+  }
+}
 
 export async function loader({ request, params }: LoaderFunctionArgs) {
   const userId = params.userId;
@@ -88,8 +144,14 @@ export async function loader({ request, params }: LoaderFunctionArgs) {
 
 export default function Profile() {
   const { data, gallery } = useLoaderData<LoaderData>();
+  const userLoged = useRouteLoaderData<userLoged>("routes/_private");
 
-  // console.log(data);
+  const followFetcher = useFetcher();
+
+  const optimisticFollow =
+    followFetcher.formData?.get("follow") === "follow"
+      ? true
+      : data.followers?.includes(userLoged?.uid ?? "");
 
   return (
     <main className="p-8 w-full h-screen overflow-scroll">
@@ -111,6 +173,33 @@ export default function Profile() {
                 <img src="/edit-icon.svg" alt="" className="w-3" />
                 Editar perfil
               </button>
+            )}
+            {!data.isUser && (
+              <div className="flex items-center gap-4">
+                <followFetcher.Form method="post">
+                  <input
+                    type="hidden"
+                    name="userLogedId"
+                    value={userLoged?.uid}
+                  />
+                  <input type="hidden" name="userId" value={data.id} />
+                  <button
+                    type="submit"
+                    name="follow"
+                    value={optimisticFollow ? "notFollow" : "follow"}
+                    className="text-3xl font-bold text-[#F46868] text-transparent"
+                  >
+                    {optimisticFollow ? "Siguiendo" : "Seguir"}
+                  </button>
+                </followFetcher.Form>
+
+                <Link
+                  to={"/mensajes"}
+                  className="text-center p-2 font-bold text-white rounded-lg bg-[linear-gradient(to_bottom,_#5D3955,_#F46868_35%)] text-base"
+                >
+                  Enviar mensaje
+                </Link>
+              </div>
             )}
           </p>
 

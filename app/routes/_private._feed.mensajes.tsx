@@ -1,3 +1,3 @@
 export default function Mensajes() {
-  return <p>Mensajes</p>;
+  return <img className="h-screen" src="/desarrollo/MENSAJES.png" />;
 }
