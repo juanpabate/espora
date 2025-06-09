@@ -32,55 +32,57 @@ export default function Index() {
             <Link to={"/login"}>Iniciar sesión</Link>
           </div>
         </nav>
-        <div className="flex flex-col items-center">
-          <p className="text-5xl font-bold w-2/3 text-center mb-8">
-            ¡Te damos la bienvenida a Espora!
-          </p>
-          <p className="font-extralight text-center w-[80%] mb-8">
-            Espora es un
-            <span className="font-bold px-1">
-              espacio digital hecho para artistas, gestores y amantes del arte
-            </span>
-            del Valle de Aburrá. Aquí no solo muestras tu trabajo: lo{" "}
-            <span className="font-bold">
-              compartes, colaboras y haces parte de una comunidad
-            </span>{" "}
-            viva que vibra con la creación.
-          </p>
-          <p className="text-5xl font-bold mb-6 text-center">
-            ¿Qué puedes hacer en Espora?
-          </p>
-          <div className="flex w-full gap-6 justify-center mb-6">
-            <div className="flex flex-col w-56 items-center gap-2">
-              <img className="w-32 h-32" src="/art-icon.svg" alt="" />
-              <p className="font-bold">Publica tu arte</p>
-              <p className="text-center text-sm">
-                Sube tus obras, proyectos o eventos. ¡Todo cuenta!
-              </p>
-            </div>
+        <div className="h-full flex flex-col justify-center">
+          <div className="flex flex-col items-center w-full">
+            <p className="text-5xl font-bold w-2/3 text-center mb-8">
+              ¡Te damos la bienvenida a Espora!
+            </p>
+            <p className="font-extralight text-center w-[80%] mb-8">
+              Espora es un
+              <span className="font-bold px-1">
+                espacio digital hecho para artistas, gestores y amantes del arte
+              </span>
+              del Valle de Aburrá. Aquí no solo muestras tu trabajo: lo{" "}
+              <span className="font-bold">
+                compartes, colaboras y haces parte de una comunidad
+              </span>{" "}
+              viva que vibra con la creación.
+            </p>
+            <p className="text-5xl font-bold mb-6 text-center">
+              ¿Qué puedes hacer en Espora?
+            </p>
+            <div className="flex w-full gap-6 justify-center mb-6">
+              <div className="flex flex-col w-56 items-center gap-2">
+                <img className="w-32 h-32" src="/art-icon.svg" alt="" />
+                <p className="font-bold">Publica tu arte</p>
+                <p className="text-center text-sm">
+                  Sube tus obras, proyectos o eventos. ¡Todo cuenta!
+                </p>
+              </div>
 
-            <div className="flex flex-col w-56 items-center gap-2">
-              <img className="w-32 h-32" src="/conect-icon.svg" alt="" />
-              <p className="font-bold">Conecta con otros artistas</p>
-              <p className="text-center text-sm">
-                Encuentra creadores afines, haz red y colabora.
-              </p>
-            </div>
+              <div className="flex flex-col w-56 items-center gap-2">
+                <img className="w-32 h-32" src="/conect-icon.svg" alt="" />
+                <p className="font-bold">Conecta con otros artistas</p>
+                <p className="text-center text-sm">
+                  Encuentra creadores afines, haz red y colabora.
+                </p>
+              </div>
 
-            <div className="flex flex-col w-56 items-center gap-2">
-              <img className="w-32 h-32" src="/feedback-icon.svg" alt="" />
-              <p className="font-bold">Recibe feedback real</p>
-              <p className="text-center text-sm">
-                Tu arte merece ser visto y comentado
-              </p>
+              <div className="flex flex-col w-56 items-center gap-2">
+                <img className="w-32 h-32" src="/feedback-icon.svg" alt="" />
+                <p className="font-bold">Recibe feedback real</p>
+                <p className="text-center text-sm">
+                  Tu arte merece ser visto y comentado
+                </p>
+              </div>
             </div>
+            <Link
+              to={"/inicio"}
+              className="text-center p-3 font-bold text-white rounded-lg bg-[linear-gradient(to_left,_#DF6ABADB,_#B72EB2D6_35%)] mt-8 text-xl"
+            >
+              Ingresa a la comunidad
+            </Link>
           </div>
-          <Link
-            to={"/inicio"}
-            className="text-center p-3 font-bold text-white rounded-lg bg-[linear-gradient(to_left,_#DF6ABADB,_#B72EB2D6_35%)] mt-8 text-xl"
-          >
-            Ingresa a la comunidad
-          </Link>
         </div>
       </section>
     </main>
