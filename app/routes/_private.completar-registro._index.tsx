@@ -97,7 +97,7 @@ export default function CompletarRegistro() {
   }, []);
 
   return (
-    <div className="overflow-scroll max-h-screen w-2/3">
+    <div className="overflow-auto max-h-screen w-2/3">
       <div className="h-2/3 flex flex-col justify-end gap-20 my-10">
         <div>
           <p className="font-extralight text-3xl">Paso 1</p>
