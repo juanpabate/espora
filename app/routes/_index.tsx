@@ -19,15 +19,15 @@ export default function Index() {
           alt=""
         />
       </section>
-      <section className="text-white flex flex-col w-[65%] h-screen overflow-scroll pb-10">
-        <nav className="flex justify-between mb-6 py-8 items-center">
+      <section className="text-white flex flex-col w-[65%] h-screen overflow-y-auto pb-10">
+        <nav className="flex justify-between mb-6 py-8 items-center gap-3">
           <div className="flex gap-4 font-light">
             <button className="text-[#868686]">Acerca de nosotros</button>
             <button className="text-[#868686]">Términos y condiciones</button>
             <button className="text-[#868686]">Contacto</button>
             <button className="text-[#868686]">Ayuda</button>
           </div>
-          <div className="flex gap-4 pr-14">
+          <div className="flex gap-4 pr-14 items-center">
             <Link to={"/registro"}>Registrarse</Link>
             <Link to={"/login"}>Iniciar sesión</Link>
           </div>
