@@ -219,7 +219,7 @@ export default function Post({
       <p className="mb-6 font-semibold">{data.title}</p>
       <p className="mb-6">{data.description}</p>
 
-      {data.imgs && (
+      {data.imgs.length > 0 && (
         <div className="w-full relative bg-[#1a1a1a] rounded-xl mb-6 overflow-hidden flex justify-center aspect-[16/9]">
           <img
             src={data.imgs[imgIndex]}

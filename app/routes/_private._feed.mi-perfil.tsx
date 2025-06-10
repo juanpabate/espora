@@ -1,11 +1,10 @@
-import { redirect, useLoaderData, useNavigation } from "@remix-run/react";
+import { redirect, useLoaderData, Link } from "@remix-run/react";
 import type { LoaderFunctionArgs } from "@remix-run/node";
 import { getDoc, doc } from "firebase/firestore";
-import { db, storage } from "firebase/connection";
+import { db } from "firebase/connection";
 import { adminAuth } from "firebase/admin";
 import { userTokenCookie } from "utils/session";
 import { defer } from "@remix-run/node";
-import { ref, listAll, getDownloadURL } from "firebase/storage";
 import { Suspense } from "react";
 import { Await } from "@remix-run/react";
 import GallerySkeleton from "~/components/GallerySkeleton";
@@ -166,7 +165,9 @@ export default function Profile() {
           <div className="w-full py-4">
             <div className="flex w-full justify-between items-center mb-3">
               <p className="text-2xl">Mi galería:</p>
-              <button className="text-red-300">Ver todo</button>
+              <Link to={"/mi-galeria"} className="text-red-300">
+                Ver todo
+              </Link>
             </div>
             <Suspense fallback={<GallerySkeleton />}>
               <Await resolve={gallery}>
